@@ -11,6 +11,9 @@
 $ mkdir nginx django
 $ cd django
 $ django-admin startproject myproject
+```
+
+```bash
 $ cd myproject
 $ python3 manage.py runserver 0.0.0.0:8000
 ```
