@@ -44,7 +44,6 @@ processes    = 1
 threads      = 4
 http-socket  = 0.0.0.0:8000
 
-chmod-socket = 666
 vaccum       = true
 pidfile      = /ghilbut/uwsgi/uwsgi.pid
 
@@ -67,6 +66,7 @@ mysqlclient==1.3.12
 **/__pycache__
 **/db.sqlite3
 **/*.pyc
+**/.*.swp
 ```
 
 #### 2-4. django/Dockerfile
@@ -121,7 +121,7 @@ env          = DJANGO_SETTINGS_MODULE=myproject.settings
 master       = true
 processes    = 1
 threads      = 4
-docker       = /ghilbut/uwsgi/uwsgi.sock
+socket       = /ghilbut/uwsgi/uwsgi.sock
 
 chmod-socket = 666
 vaccum       = true
