@@ -8,8 +8,8 @@
 ## B. create project environments
 
 ```bash
-$ mkdir nginx django
-$ cd django
+$ mkdir -p myproject/nginx myproject/django
+$ cd myproject/django
 $ django-admin startproject myproject
 ```
 
@@ -53,7 +53,23 @@ single-interpreter = true
 lazy-apps = true
 ```
 
-#### 2-2. django/Dockerfile
+#### 2-2. django/requirements.txt
+
+```
+Django==1.11.7
+mysqlclient==1.3.12
+```
+
+#### 2-3. django/.dockerignore
+
+```
+**/.DS_Store
+**/__pycache__
+**/db.sqlite3
+**/*.pyc
+```
+
+#### 2-4. django/Dockerfile
 
 ```
 FROM ubuntu:16.04
@@ -80,22 +96,6 @@ WORKDIR /ghilbut/myproject
 RUN python3 manage.py collectstatic
 
 ENTRYPOINT [ "/usr/bin/uwsgi", "--ini", "/ghilbut/uwsgi.ini" ]
-```
-
-#### 2-3. django/.dockerignore
-
-```
-**/.DS_Store
-**/__pycache__
-**/db.sqlite3
-**/*.pyc
-```
-
-#### 2-4. django/requirements.txt
-
-```
-Django==1.11.7
-mysqlclient==1.3.12
 ```
 
 ### 3. build image and run container
