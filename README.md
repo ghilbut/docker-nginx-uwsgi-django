@@ -1,4 +1,4 @@
-# docker-django-uwsgi
+# docker-nginx-uwsgi-django
 
 ## A. environments
 
