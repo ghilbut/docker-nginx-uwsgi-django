@@ -19,4 +19,6 @@ COPY myproject  /ghilbut/myproject
 WORKDIR /ghilbut/myproject
 RUN python3 manage.py collectstatic
 
+VOLUME ["/ghilbut/static", "/ghilbut/uwsgi"]
+
 ENTRYPOINT [ "/usr/bin/uwsgi", "--ini", "/ghilbut/uwsgi.ini" ]
