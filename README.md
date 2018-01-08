@@ -95,6 +95,8 @@ COPY myproject    /ghilbut/myproject
 WORKDIR /ghilbut/myproject
 RUN python3 manage.py collectstatic
 
+VOLUME ["/ghilbut/static", "/ghilbut/uwsgi"]
+
 ENTRYPOINT [ "/usr/bin/uwsgi", "--ini", "/ghilbut/uwsgi.ini" ]
 ```
 
@@ -224,7 +226,7 @@ COPY myproject.conf  /etc/nginx/conf.d/myproject.conf
 
 ```bash
 $ docker build -t myproject:0.1 .
-$ docker run -it --rm --name myproject -v /ghilbut/static -v /ghilbut/uwsgi myproject:0.1
+$ docker run -it --rm --name myproject myproject:0.1
 ```
 
 #### 3-2. build and run nginx
