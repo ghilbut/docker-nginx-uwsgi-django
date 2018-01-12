@@ -18,7 +18,7 @@ $ cd myproject
 $ python3 manage.py runserver 0.0.0.0:8000
 ```
 
-## C. set docker+uwsgi environments
+## C. set docker+uwsgi standalone environments
 
 ### 1. edit files which already exist
 
@@ -107,9 +107,9 @@ $ docker build -t myproject:0.1 .
 $ docker run -it --rm --name myproject -p 8000:8000 myproject:0.1
 ```
 
-## D. create docker+nginx environments
+## D. create docker+uwsgi and nginx environments
 
-### 1. change files
+### 1. edit files
 
 #### 1-1. django/uwsgi.ini
 
